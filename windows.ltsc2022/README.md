@@ -24,7 +24,7 @@
 
 ## Installed Software
 
-- Aws CLI 2.0.60
+- Aws CLI 2.13.31
 - Aws Iam Authenticator 0.5.3
 - Aws Powershell 4.1.2
 - Azure CLI 2.51.0
@@ -37,7 +37,8 @@
 - Kubectl 1.18.8
 - Kubelogin (azure-kubelogin) 0.0.25
 - Node 14.17.2
-- Octopus CLI 9.1.7
+- Octopus CLI Legacy 9.1.7
+- Octopus CLI 1.7.1
 - Octopus Client 11.6.3644
 - Powershell 7.2.7
 - Python 3.8.5

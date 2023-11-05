@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/dotnet/framework/runtime:4.8.1-20230808-windowsservercore-ltsc2022
 SHELL ["powershell", "-Command"]
 
-ARG Aws_Cli_Version=2.13.17
+ARG Aws_Cli_Version=2.13.31
 ARG Aws_Iam_Authenticator_Version=0.5.9
 ARG Aws_Powershell_Version=4.1.412
 ARG Azure_Cli_Version=2.52.0
@@ -15,7 +15,8 @@ ARG Java_Jdk_Version=14.0.2
 ARG Kubectl_Version=1.28.1
 ARG Kubelogin_Version=0.0.30
 ARG Node_Version=14.17.2
-ARG Octopus_Cli_Version=9.1.7
+ARG Octopus_Cli_Legacy_Version=9.1.7
+ARG Octopus_Cli_Version=1.7.1
 ARG Octopus_Client_Version=11.6.3644
 ARG Powershell_Version=7.3.6
 ARG Python_Version=3.11.5
@@ -95,8 +96,11 @@ RUN Invoke-WebRequest "https://dl.google.com/dl/cloudsdk/channels/rapid/download
 # # Install ScriptCS
 RUN choco install scriptcs -y --version $Env:ScriptCs_Version --no-progress
 
+# Install Octopus CLI
+RUN choco install octopus-cli -y --version $Env:Octopus_Cli_Version --no-progress
+
 # # Install octo
-RUN choco install octopustools -y --version $Env:Octopus_Cli_Version --no-progress
+RUN choco install octopustools -y --version $Env:Octopus_Cli_Legacy_Version --no-progress
 
 # # Install Octopus Client
 RUN Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies -Force -RequiredVersion $Env:Octopus_Client_Version

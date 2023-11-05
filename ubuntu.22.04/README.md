@@ -24,7 +24,7 @@
 
 ## Installed Software
 
-- Aws CLI 2.0.60
+- Aws CLI 2.13.31
 - Aws Iam Authenticator 0.5.3
 - Aws Powershell 4.1.2
 - Azure CLI 2.51.0-1~jammy
@@ -38,7 +38,8 @@
 - Java Jdk 11.0.20.1+1-0ubuntu1~22.04
 - Kubectl 1.18.8-00
 - Kubelogin v0.0.25
-- Octopus CLI 9.1.7
+- Octopus CLI 1.7.1
+- Octopus CLI Legacy 9.1.7
 - Octopus Client 11.6.3644
 - Powershell 7.2.7-1.deb
 - Terraform 1.1.3

@@ -37,7 +37,7 @@ Describe  'installed dependencies' {
     }
 
     It 'has aws cli installed' {
-      aws --version 2>&1 | Should -Match '2.13.17'
+      aws --version 2>&1 | Should -Match '2.13.31'
     }
 
     It 'has aws powershell installed' {
@@ -89,6 +89,11 @@ Describe  'installed dependencies' {
         gcloud --version | Select-String -Pattern "0.5.5" | Should -BeLike "gke-gcloud-auth-plugin 0.5.5"
         $LASTEXITCODE | Should -be 0
     }
+
+    It 'has octopus cli installed' {
+        octopus version | Should -Match '1.7.1'
+        $LASTEXITCODE | Should -be 0
+    }    
 
     It 'has octo installed' {
         octo --version | Should -Match '9.1.7'
