@@ -8,7 +8,7 @@ Write-Host 'Running tests with Pester v'+$($pesterModules[0].Version)
 
 Describe  'installed dependencies' {
     It 'has dotnet installed' {
-        dotnet --version | Should -match '6.0.\d+'
+        dotnet --version | Should -match '67.0.\d+'
         $LASTEXITCODE | Should -be 0
     }
 
