@@ -63,6 +63,7 @@ jobs:
         build-args: |
           version=${{ steps.gitversion.outputs.fullSemVer }}
         tags: worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
+        cache-to: local
  
     - name: List images
       run: |
