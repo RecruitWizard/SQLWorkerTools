@@ -1,6 +1,5 @@
 FROM ubuntu:22.04
 
-ARG Azure_Powershell_Version=4.5.0
 ARG Dotnet_Sdk_Version=6.0
 ARG Powershell_Version=7.2.7-1.deb
 ARG Umoci_Version=0.4.6
