@@ -28,14 +28,6 @@ RUN DOTNET_CLI_TELEMETRY_OPTOUT=1 && \
     apt-get update && \
     apt-get install -y dotnet-sdk-${Dotnet_Sdk_Version}
 
-# Get python3 & groff
-RUN apt-get install -y python3-pip groff && \
-    python3 -m pip install pycryptodome --user
-
-# Install python2
-RUN apt-get install -y python2-minimal=${Python2_Version} && \
-    ln -s /usr/bin/python2 /usr/bin/python
-
 # Get tools for working with Docker images without the Docker daemon
 # https://github.com/openSUSE/umoci
 RUN curl --silent --location https://github.com/opencontainers/umoci/releases/download/v${Umoci_Version}/umoci.amd64 -o /usr/local/bin/umoci && \
