@@ -63,4 +63,7 @@ jobs:
         build-args: |
           version=${{ steps.gitversion.outputs.fullSemVer }}
         tags: worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
-        
+ 
+    - name: Run Tests
+      run: |
+        ./build.sh --image-directory='ubuntu.22.04'
