@@ -56,15 +56,10 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Image 
-      uses: docker/build-push-action@v5
-      with:
-        context: ubuntu.22.04    
-        build-args: |
-          version=${{ steps.gitversion.outputs.fullSemVer }}
-        tags: worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
-        cache-to: local
- 
+    - name: Build Tests Image
+      run: |
+        docker build . -t worker-tools:${{ steps.gitversion.outputs.fullSemVer }} -f ubuntu.22.04/Dockerfile
+  
     - name: List images
       run: |
          docker image ls
