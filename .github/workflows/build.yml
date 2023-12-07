@@ -64,6 +64,10 @@ jobs:
           version=${{ steps.gitversion.outputs.fullSemVer }}
         tags: worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
  
+    - name: List images
+      run: |
+         docker image ls
+        
     - name: Build Tests Image
       run: |
         docker build . -t worker-tools-tests -f ubuntu.22.04/Tests.Dockerfile --build-arg ContainerUnderTest=worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
