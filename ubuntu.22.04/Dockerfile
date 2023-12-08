@@ -40,5 +40,5 @@ RUN add-apt-repository -y ppa:rmescandon/yq && \
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | tee /etc/apt/trusted.gpg.d/microsoft.asc
 RUN curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | tee /etc/apt/sources.list.d/mssql-release.list
-RUN apt-get update && \
-    apt-get install mssql-tools18 unixodbc-dev    
+RUN apt-get update
+RUN apt-get install -y mssql-tools18 unixodbc-dev    
