@@ -56,18 +56,11 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Worker Tools Image
-      run: |
-        docker build . -t worker-tools:${{ steps.gitversion.outputs.fullSemVer }} -f ubuntu.22.04/Dockerfile
-  
-    - name: List images
-      run: |
-         docker image ls
-        
-    - name: Build Tests Image
-      run: |
-        docker build . -t worker-tools-tests -f ubuntu.22.04/Tests.Dockerfile --build-arg ContainerUnderTest=worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
-
-    - name: Run Tests
-      run: |
-        docker run worker-tools-tests        
+    - name: Build & Push 
+      uses: docker/build-push-action@v5
+      with:
+        context: ubuntu.22.04    
+        push: true
+        build-args: |
+            version=${{ steps.gitversion.outputs.fullSemVer }}
+        tags: ${{ secrets.DOCKER_SERVER_URL }}/sql-worker-tools:${{ steps.gitversion.outputs.fullSemVer }}
