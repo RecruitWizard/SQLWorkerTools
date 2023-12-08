@@ -1,1 +1,2 @@
-mode: ContinuousDeployment
+mode: Mainline
+assembly-informational-format: '{FullSemVer}'
