@@ -16,8 +16,8 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/22.04/packages-microsof
     add-apt-repository universe && \
     apt-get install -y powershell=${Powershell_Version}
 
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc \
-    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list \
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | tee /etc/apt/trusted.gpg.d/microsoft.asc \
+    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | tee /etc/apt/sources.list.d/mssql-release.list \
     apt-get update \
     apt-get install mssql-tools18 unixodbc-dev
 
