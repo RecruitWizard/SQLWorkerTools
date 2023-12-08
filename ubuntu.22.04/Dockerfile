@@ -38,6 +38,9 @@ RUN curl --silent --location https://github.com/opencontainers/umoci/releases/do
 RUN add-apt-repository -y ppa:rmescandon/yq && \
     apt-get update && apt-get install -y jq yq openssh-client rsync git augeas-tools
 
+ARG MSSQLTOOLS_PATH=/opt/mssql-tools18
+ENV PATH=$MSSQLTOOLS_PATH/bin:$PATH    
+
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | tee /etc/apt/trusted.gpg.d/microsoft.asc
 RUN curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | tee /etc/apt/sources.list.d/mssql-release.list
 RUN apt-get update
